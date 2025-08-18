@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Finder</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+
+
+
+    <style>
+        code {
+            background-color: hwb(193 57% 11%);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        pre {
+            background-color: rgb(115, 183, 228);
+            padding: 1em;
+            border-radius: 3px;
+            overflow-x: auto;
+            white-space: pre-wrap; /* Allow long lines to wrap */
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <nav class="bg-white border-b border-gray-200 dark:bg-gray-900">
+        <div class="max-w-screen-xl mx-auto p-4 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3">
+                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="TutorFinderAI log" />
+                <span class="text-2xl font-semibold dark:text-white">TUTORFINDER</span>
+            </a>
+            <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                </svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li><a href="{% url 'home' %}" class="block py-2 px-3 text-blue-700 md:text-blue-500 dark:text-white" aria-current="page">Home</a></li>
+                    <li><a href="{% url 'about' %}" class="block py-2 px-3 text-gray-900 dark:text-white md:hover:text-blue-700 dark:hover:text-blue-500">About</a></li>
+                    <li><a href="{% url 'contact' %}" class="block py-2 px-3 text-gray-900 dark:text-white md:hover:text-blue-700 dark:hover:text-blue-500">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="bg-gray-200 py-8">
+        <div class="max-w-3xl mx-auto bg-white p-8 rounded shadow mt-6 mb-8">
+            <h1 class="text-3xl text-black font-bold mb-6 text-center">Find the Best Tutorial</h1>
+            <form method="post" class="mb-6">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label for="prompt" class="block text-lg font-medium text-gray-700">Enter what you want to learn:</label>
+                    <input type="text" id="prompt" name="prompt" placeholder="What do you want to learn today?" class="mt-2 p-2 w-full border border-gray-300 rounded" required>
+                </div>
+                <button type="submit" class="w-full py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded">Search</button>
+            </form>
+         
+        
+
+            {% if response %}
+                <h2 class="text-2xl font-bold mb-4">AI Generated Basic Tutorial Query:</h2>
+                <div class="mb-6">{{ response|safe }}</div>
+            {% endif %}
+            
+            {% if youtube_videos %}
+                <h2 class="text-2xl font-bold mb-4">Top YouTube Tutorials:</h2>
+                <ul class="space-y-6">
+                    {% for video in youtube_videos %}
+                        <li class="border-b border-gray-200 pb-4">
+                            <iframe class="w-full h-64 mb-4" src="https://www.youtube.com/embed/{{ video.url|slice:'32:' }}" frameborder="0" allowfullscreen></iframe>
+                            <h3 class="text-xl font-semibold"><a href="{{ video.url }}" target="_blank" class="text-blue-500 hover:underline">{{ video.title }}</a></h3>
+                            <p class="text-gray-700">{{ video.description }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </section>
+
+    <footer class="bg-white border-t border-gray-200 text-black py-8">
+        <div class="max-w-screen-xl mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-4">Get more updates...</h2>
+            <p class="mb-4">Do you want to get notified when a new component is added? Sign up for our newsletter and you'll be among the first to find out about new features, components, versions, and tools.</p>
+            <form class="flex flex-col md:flex-row items-center">
+                <input type="email" placeholder="Your email address..." class="w-full md:w-1/4 p-2 rounded-md mb-4 md:mb-0 md:mr-4 bg-blue-200 text-black">
+                <a href="mailto:musaabdullahiadetayo@gmail.com"><button type="submit" class="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">Subscribe</button></a>
+            </form>
+            <p class="mt-4 text-sm">By subscribing, you agree with TutorFinderAI's <a href="#" class="text-blue-400 hover:underline">Terms of Service</a> and <a href="#" class="text-blue-400 hover:underline">Privacy Policy</a>.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+</body>
+</html>

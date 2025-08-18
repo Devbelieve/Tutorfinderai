@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - AI Tutorial Recommender</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+    <nav class="bg-white border-b border-gray-200 dark:bg-gray-900">
+        <div class="max-w-screen-xl mx-auto p-4 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3">
+                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="TutorFinderAI log" />
+                <span class="text-2xl font-semibold dark:text-white">TUTORFINDER</span>
+            </a>
+            <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                </svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li><a href="{% url 'home' %}" class="block py-2 px-3 text-blue-700 md:text-blue-500 dark:text-white" aria-current="page">Home</a></li>
+                    <li><a href="{% url 'about' %}" class="block py-2 px-3 text-gray-900 dark:text-white md:hover:text-blue-700 dark:hover:text-blue-500">About</a></li>
+                    <li><a href="{% url 'contact' %}" class="block py-2 px-3 text-gray-900 dark:text-white md:hover:text-blue-700 dark:hover:text-blue-500">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="container mx-auto px-6 py-12">
+        <section class="bg-white shadow-lg p-8 rounded-lg">
+            <h2 class="text-3xl font-semibold text-blue-600 mb-4">We'd Love to Hear From You!</h2>
+            <p class="mb-6">Whether you have questions, need technical support, or want to inquire about partnerships, feel free to reach out to us using the details below.</p>
+
+            <h3 class="text-2xl font-semibold text-blue-600 mt-6 mb-4">General Inquiries</h3>
+            <p>Email: <a href="mailto:support@tutorialrecommend.com" class="text-blue-500 underline">support@tutorialrecommend.com</a></p>
+
+            <h3 class="text-2xl font-semibold text-blue-600 mt-6 mb-4">Technical Support</h3>
+            <p>Email: <a href="mailto:techsupport@tutorialrecommend.com" class="text-blue-500 underline">techsupport@tutorialrecommend.com</a></p>
+            <p>Phone: <span class="font-semibold">+234 8120209785</span></p>
+
+            <h3 class="text-2xl font-semibold text-blue-600 mt-6 mb-4">Business & Partnership Inquiries</h3>
+            <p>Email: <a href="mailto:partnerships@tutorialrecommend.com" class="text-blue-500 underline">partnerships@tutorialrecommend.com</a></p>
+
+            <h3 class="text-2xl font-semibold text-blue-600 mt-6 mb-4">Follow Us on Social Media</h3>
+            <p>Twitter: <a href="https://twitter.com/TutorialRecommendAI" class="text-blue-500 underline">@TutorialRecommendAI</a></p>
+            <p>LinkedIn: <a href="https://linkedin.com/TutorialRecommendationSystem" class="text-blue-500 underline">TutorialRecommendationSystem</a></p>
+            <p>Instagram: <a href="https://instagram.com/TutorialRecommender" class="text-blue-500 underline">@TutorialRecommender</a></p>
+
+            <h3 class="text-2xl font-semibold text-blue-600 mt-6 mb-4">Office Address</h3>
+            <p>Headquarters: Misra Avenue ESTATE saki oyo state Nig., FORTUNEWEBHUB.ENT, CA 94016</p>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 text-black py-8">
+        <div class="max-w-screen-xl mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-4">Get more updates...</h2>
+            <p class="mb-4">Do you want to get notified when a new component is added? Sign up for our newsletter and you'll be among the first to find out about new features, components, versions, and tools.</p>
+            <form class="flex flex-col md:flex-row items-center">
+                <input type="email" placeholder="Your email address..." class="w-full md:w-1/4 p-2 rounded-md mb-4 md:mb-0 md:mr-4 bg-blue-200 text-black">
+                <a href="mailto:musaabdullahiadetayo@gmail.com"><button type="submit" class="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">Subscribe</button></a>
+            </form>
+            <p class="mt-4 text-sm">By subscribing, you agree with TutorFinderAI's <a href="#" class="text-blue-400 hover:underline">Terms of Service</a> and <a href="#" class="text-blue-400 hover:underline">Privacy Policy</a>.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
