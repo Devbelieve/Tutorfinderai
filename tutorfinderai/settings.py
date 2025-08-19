@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-l@2*hh8zn0gp)x21%bfzatog7aog2br-4=^yn)(-yag4_5368%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['tutorfinderai.onrender.com', 'localhost: 127.0.0.1']
+ALLOWED_HOSTS = ['tutorfinderai.onrender.com', 'localhost, 127.0.0.1']
 
 
 # Application definition
