@@ -1,0 +1,18 @@
+# Web framework
+Django==5.0.7
+
+# Google Generative AI (Gemini)
+google-generativeai==0.7.2
+
+# Google API client (for YouTube Data API)
+google-api-python-client==2.148.0
+
+# Markdown rendering
+Markdown==3.6
+
+# Environment variables (optional but recommended for API keys)
+python-dotenv==1.0.1
+
+# Utilities
+requests==2.32.3
+gunicorn==23.0.0 
