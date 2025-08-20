@@ -1,5 +1,6 @@
  
-
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 from django.shortcuts import render
 import google.generativeai as genai
 import re
@@ -42,6 +43,8 @@ def extract_title(response_text, prompt):
         return match.group(1).strip()
     return f"{prompt} course"
 
+
+@method_decorator(csrf_exempt, name='dispatch')
 def home(request):
     response_data = {}
     youtube_videos = []
